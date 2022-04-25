@@ -3,17 +3,24 @@ package fftl.fooddeliveryapi.member.entity;
 import fftl.fooddeliveryapi.address.entity.MemberAddress;
 import fftl.fooddeliveryapi.order.entity.Order;
 import fftl.fooddeliveryapi.review.entity.Review;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Member {
 
     @Id
-    private Long userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long memberId;
 
     @Column
     private String username;
@@ -25,11 +32,13 @@ public class Member {
     @Column
     private Boolean removed;
 
-    @Column
+    @OneToMany
     private List<Order> orders;
-    @Column
+
+    @OneToMany
     private List<MemberAddress> memberAddresses;
-    @Column
+
+    @OneToMany
     private List<Review> reviews;
 
 }
