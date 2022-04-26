@@ -18,7 +18,7 @@ public class SaveMemberRequest {
             .username(username)
             .password(password)
             .nickname(nickname)
-            .removed(false)
+            .deleted(false)
             .build();
     }
 }

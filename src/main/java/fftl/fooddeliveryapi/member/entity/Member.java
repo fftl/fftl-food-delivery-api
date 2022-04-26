@@ -1,15 +1,12 @@
 package fftl.fooddeliveryapi.member.entity;
 
-import fftl.fooddeliveryapi.address.entity.MemberAddress;
-import fftl.fooddeliveryapi.order.entity.Order;
-import fftl.fooddeliveryapi.review.entity.Review;
+import fftl.fooddeliveryapi.member.dto.SaveMemberRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Builder
@@ -30,15 +27,24 @@ public class Member {
     @Column
     private String nickname;
     @Column
-    private Boolean removed;
+    private Boolean deleted;
 
-    @OneToMany
-    private List<Order> orders;
+//    @OneToMany
+//    private List<Order> orders;
 
-    @OneToMany
-    private List<MemberAddress> memberAddresses;
+//    @OneToMany
+//    private List<MemberAddress> memberAddresses;
 
-    @OneToMany
-    private List<Review> reviews;
+//    @OneToMany
+//    private List<Review> reviews;
 
+    public void updateMember(SaveMemberRequest saveMemberRequest) {
+        this.nickname = saveMemberRequest.getNickname();
+        this.username = saveMemberRequest.getUsername();
+        this.password = saveMemberRequest.getPassword();
+    }
+
+    public void deleteMember(){
+        this.deleted = true;
+    }
 }

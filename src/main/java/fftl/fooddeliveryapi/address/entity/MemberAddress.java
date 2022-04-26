@@ -1,5 +1,7 @@
 package fftl.fooddeliveryapi.address.entity;
 
+import fftl.fooddeliveryapi.member.entity.Member;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +18,7 @@ public class MemberAddress {
     @Column
     private Double lon; //경도
 
-    @Column
-    private Long memberId;
+//    @ManyToOne
+//    private Member member;
 
 }
