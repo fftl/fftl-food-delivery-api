@@ -29,7 +29,12 @@ public class MemberService {
         if(member.getDeleted()){
             throw new RuntimeException("올바르지 않은 아이디나 비밀번호 입니다.");
         }
-        return null;
+
+        if(!member.getPassword().equals(loginMemberRequest.getPassword())){
+            throw new RuntimeException("올바르지 않은 아이디나 비밀번호 입니다.");
+        }
+
+        return member;
     }
 
     public Member findOneMemberById(Long memberId){
