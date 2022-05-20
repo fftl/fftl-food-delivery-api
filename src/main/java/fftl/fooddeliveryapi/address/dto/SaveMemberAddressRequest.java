@@ -1,6 +1,6 @@
 package fftl.fooddeliveryapi.address.dto;
 
-import fftl.fooddeliveryapi.address.entity.StoreAddress;
+import fftl.fooddeliveryapi.address.entity.MemberAddress;
 import lombok.*;
 
 @AllArgsConstructor
@@ -8,14 +8,14 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-public class SaveStoreAddressRequest {
+public class SaveMemberAddressRequest {
 
     private String address;
     private Double lat;
     private Double lon;
 
-    public StoreAddress toEntity(){
-        return StoreAddress.builder()
+    public MemberAddress toEntity(){
+        return MemberAddress.builder()
             .address(address)
             .lat(lat)
             .lon(lon)

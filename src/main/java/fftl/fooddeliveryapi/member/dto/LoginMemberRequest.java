@@ -13,5 +13,4 @@ public class LoginMemberRequest {
 
     private String username;
     private String password;
-
 }
