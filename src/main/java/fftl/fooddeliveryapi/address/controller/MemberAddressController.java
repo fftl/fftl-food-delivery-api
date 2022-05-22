@@ -19,6 +19,12 @@ public class MemberAddressController {
         MemberAddress memberAddress = memberAddressService.saveMemberAddress(saveMemberAddressRequest);
         return new Response(true, null, memberAddress);
     }
-    
+
+    @GetMapping("/{memberAddressId}")
+    public Response findOneMemberAddress(@PathVariable Long memberAddressId){
+        MemberAddress memberAddress = memberAddressService.findOneMemberAddress(memberAddressId);
+        return new Response(true, null, memberAddress)
+    }
+
 
 }

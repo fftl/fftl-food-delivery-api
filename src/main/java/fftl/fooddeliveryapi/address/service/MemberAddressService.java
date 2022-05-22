@@ -19,7 +19,7 @@ public class MemberAddressService {
 
     //매장 주소 조회
     public MemberAddress findOneMemberAddress(Long memberAddressId){
-        return memberAddressRepository.findById(MemberAddressId).orElseThrow(()->new RuntimeException("해당 주소를 찾을 수 없습니다."));
+        return memberAddressRepository.findById(memberAddressId).orElseThrow(()->new RuntimeException("해당 주소를 찾을 수 없습니다."));
     }
 
     //매장 주소 삭제
