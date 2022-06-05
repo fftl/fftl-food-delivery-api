@@ -23,8 +23,13 @@ public class MemberAddressController {
     @GetMapping("/{memberAddressId}")
     public Response findOneMemberAddress(@PathVariable Long memberAddressId){
         MemberAddress memberAddress = memberAddressService.findOneMemberAddress(memberAddressId);
-        return new Response(true, null, memberAddress)
+        return new Response(true, null, memberAddress);
     }
 
+    @DeleteMapping("/{memberAddressId}")
+    public Response deleteMemberAddress(@PathVariable Long memberAddressId){
+        memberAddressService.deleteMemberAddress(memberAddressId);
+        return new Response(true, null, null);
+    }
 
 }

@@ -23,8 +23,8 @@ public class MemberAddressService {
     }
 
     //매장 주소 삭제
-    public void deleteMemberAddress(Long MemberAddressId){
-        MemberAddress MemberAddress = memberAddressRepository.findById(MemberAddressId).orElseThrow(() -> new RuntimeException("해당 주소를 찾을 수 없습니다."));
+    public void deleteMemberAddress(Long memberAddressId){
+        MemberAddress MemberAddress = memberAddressRepository.findById(memberAddressId).orElseThrow(() -> new RuntimeException("해당 주소를 찾을 수 없습니다."));
         memberAddressRepository.delete(MemberAddress);
     }
     
